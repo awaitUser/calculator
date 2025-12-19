@@ -6,13 +6,13 @@ A fully-featured web-based scientific calculator with multiple calculation modes
 
 ### Calculation Modes
 
-**Simple Mode** - Basic arithmetic for everyday calculations. Just the essentials: addition, subtraction, multiplication, and division.
+**Simple Mode (Noob)** - Basic arithmetic for everyday calculations. Just the essentials: addition, subtraction, multiplication, and division.
 
-**Scientific Mode** - Most of the functions you'd need for scientific and engineering work. Includes trigonometric functions (sin, cos, tan), logarithms (log, ln), powers, roots, factorial, and constants like pi and e.
+**Scientific Mode (Pro)** - Most of the functions you'd need for scientific and engineering work. Includes trigonometric functions (sin, cos, tan), logarithms (log, ln), powers, roots, factorial, and constants like pi and e.
 
-**Advanced Mode** - The full suite. Everything from Scientific mode plus reciprocal, absolute value, power operations, parentheses, modulo, degree/radian toggle, and extra trigonometric functions.
+**Advanced Mode (Hacker)** - The full suite. Everything from Scientific mode plus reciprocal, absolute value, power operations, parentheses, modulo, degree/radian toggle, and extra trigonometric functions.
 
-**Programmer Mode** - Convert between number systems (decimal, hex, binary, octal) and perform bitwise operations (AND, OR, XOR, NOT).
+**Programmer Mode (God)** - Convert between number systems (decimal, hex, binary, octal) and perform bitwise operations (AND, OR, XOR, NOT).
 
 ### General Features
 
