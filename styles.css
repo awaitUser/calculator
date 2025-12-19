@@ -80,80 +80,80 @@ body {
 /* 67 meme animation - calculator split shake */
 @keyframes calculatorSplit {
     0%, 100% {
-        transform: translateY(0);
+        transform: translateX(0);
         clip-path: inset(0 0 0 0);
     }
     10% {
-        clip-path: inset(0 0 50% 0);
-        transform: translateY(-20px);
+        clip-path: inset(0 50% 0 0);
+        transform: translateX(-30px);
     }
     10.5% {
-        clip-path: inset(50% 0 0 0);
-        transform: translateY(20px);
+        clip-path: inset(0 0 0 50%);
+        transform: translateX(30px);
     }
     20% {
-        clip-path: inset(0 0 50% 0);
-        transform: translateY(-20px);
+        clip-path: inset(0 50% 0 0);
+        transform: translateX(-30px);
     }
     20.5% {
-        clip-path: inset(50% 0 0 0);
-        transform: translateY(20px);
+        clip-path: inset(0 0 0 50%);
+        transform: translateX(30px);
     }
     30% {
-        clip-path: inset(0 0 50% 0);
-        transform: translateY(-20px);
+        clip-path: inset(0 50% 0 0);
+        transform: translateX(-30px);
     }
     30.5% {
-        clip-path: inset(50% 0 0 0);
-        transform: translateY(20px);
+        clip-path: inset(0 0 0 50%);
+        transform: translateX(30px);
     }
     40% {
-        clip-path: inset(0 0 50% 0);
-        transform: translateY(-20px);
+        clip-path: inset(0 50% 0 0);
+        transform: translateX(-30px);
     }
     40.5% {
-        clip-path: inset(50% 0 0 0);
-        transform: translateY(20px);
+        clip-path: inset(0 0 0 50%);
+        transform: translateX(30px);
     }
     50% {
-        clip-path: inset(0 0 50% 0);
-        transform: translateY(-20px);
+        clip-path: inset(0 50% 0 0);
+        transform: translateX(-30px);
     }
     50.5% {
-        clip-path: inset(50% 0 0 0);
-        transform: translateY(20px);
+        clip-path: inset(0 0 0 50%);
+        transform: translateX(30px);
     }
     60% {
-        clip-path: inset(0 0 50% 0);
-        transform: translateY(-20px);
+        clip-path: inset(0 50% 0 0);
+        transform: translateX(-30px);
     }
     60.5% {
-        clip-path: inset(50% 0 0 0);
-        transform: translateY(20px);
+        clip-path: inset(0 0 0 50%);
+        transform: translateX(30px);
     }
     70% {
-        clip-path: inset(0 0 50% 0);
-        transform: translateY(-20px);
+        clip-path: inset(0 50% 0 0);
+        transform: translateX(-30px);
     }
     70.5% {
-        clip-path: inset(50% 0 0 0);
-        transform: translateY(20px);
+        clip-path: inset(0 0 0 50%);
+        transform: translateX(30px);
     }
     80% {
-        clip-path: inset(0 0 50% 0);
-        transform: translateY(-20px);
+        clip-path: inset(0 50% 0 0);
+        transform: translateX(-30px);
     }
     80.5% {
-        clip-path: inset(50% 0 0 0);
-        transform: translateY(20px);
+        clip-path: inset(0 0 0 50%);
+        transform: translateX(30px);
     }
     90% {
-        clip-path: inset(0 0 50% 0);
-        transform: translateY(-20px);
+        clip-path: inset(0 50% 0 0);
+        transform: translateX(-30px);
     }
     90.5% {
-        clip-path: inset(50% 0 0 0);
-        transform: translateY(20px);
+        clip-path: inset(0 0 0 50%);
+        transform: translateX(30px);
     }
 }
 
