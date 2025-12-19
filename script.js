@@ -236,7 +236,16 @@ class Calculator {
                 }
                 break;
             case 'equals':
-                this.calculate();
+                // Check for birthday easter egg
+                if (this.currentInput === '1909' && this.operator === null) {
+                    this.triggerConfetti();
+                    this.currentInput = '';
+                    this.previousInput = '';
+                    this.updateDisplay();
+                    this.updateHistory();
+                } else {
+                    this.calculate();
+                }
                 break;
             case 'openParen':
                 this.currentInput += '(';
@@ -251,11 +260,6 @@ class Calculator {
 
     calculate() {
         if (this.previousInput === '' || this.currentInput === '' || !this.operator) return;
-
-        // Check for birthday easter egg
-        if (this.currentInput === '1909' && this.operator === null) {
-            this.triggerConfetti();
-        }
 
         try {
             let result;
