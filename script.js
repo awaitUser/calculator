@@ -17,7 +17,7 @@ class Calculator {
     }
 
     triggerConfetti() {
-        const confettiCount = 50;
+        const confettiCount = 150;
         const colors = ['#ff6b6b', '#00d4ff', '#51cf66', '#ffd43b', '#ff922b'];
         
         for (let i = 0; i < confettiCount; i++) {
