@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <!-- Mode Switcher -->
+            <div class="mode-switcher">
+                <button class="mode-btn active" data-mode="simple">Noob</button>
+                <button class="mode-btn" data-mode="scientific">Pro</button>
+                <button class="mode-btn" data-mode="advanced">Hacker</button>
+                <button class="mode-btn" data-mode="programmer">God (aura)</button>
+            </div>
+
+            <!-- Display -->
+            <div class="display">
+                <input type="text" id="display" class="display-input" readonly placeholder="0">
+                <div class="display-history" id="history">0</div>
+            </div>
+
+            <!-- Simple Mode -->
+            <div class="mode-content" id="simple-mode">
+                <div class="buttons-grid simple-grid">
+                    <button class="btn function-btn" data-action="clear">AC</button>
+                    <button class="btn function-btn" data-action="delete">DEL</button>
+                    <button class="btn function-btn" data-action="toggleSign">±</button>
+                    <button class="btn operator-btn" data-operator="/">÷</button>
+
+                    <button class="btn number-btn" data-number="7">7</button>
+                    <button class="btn number-btn" data-number="8">8</button>
+                    <button class="btn number-btn" data-number="9">9</button>
+                    <button class="btn operator-btn" data-operator="*">×</button>
+
+                    <button class="btn number-btn" data-number="4">4</button>
+                    <button class="btn number-btn" data-number="5">5</button>
+                    <button class="btn number-btn" data-number="6">6</button>
+                    <button class="btn operator-btn" data-operator="-">−</button>
+
+                    <button class="btn number-btn" data-number="1">1</button>
+                    <button class="btn number-btn" data-number="2">2</button>
+                    <button class="btn number-btn" data-number="3">3</button>
+                    <button class="btn operator-btn" data-operator="+">+</button>
+
+                    <button class="btn number-btn" data-number="0">0</button>
+                    <button class="btn number-btn" data-number=".">.</button>
+                    <button class="btn equals-btn" data-action="equals">=</button>
+                </div>
+            </div>
+
+            <!-- Scientific Mode -->
+            <div class="mode-content hidden" id="scientific-mode">
+                <div class="buttons-grid scientific-grid">
+                    <button class="btn function-btn" data-action="clear">AC</button>
+                    <button class="btn function-btn" data-action="delete">DEL</button>
+                    <button class="btn function-btn" data-action="toggleSign">±</button>
+                    <button class="btn function-btn" data-function="pi">π</button>
+                    <button class="btn operator-btn" data-operator="/">÷</button>
+
+                    <button class="btn function-btn" data-function="sqrt">√</button>
+                    <button class="btn function-btn" data-function="sin">sin</button>
+                    <button class="btn function-btn" data-function="cos">cos</button>
+                    <button class="btn function-btn" data-function="tan">tan</button>
+                    <button class="btn operator-btn" data-operator="*">×</button>
+
+                    <button class="btn function-btn" data-function="square">x²</button>
+                    <button class="btn function-btn" data-function="log">log</button>
+                    <button class="btn function-btn" data-function="ln">ln</button>
+                    <button class="btn function-btn" data-function="e">e</button>
+                    <button class="btn operator-btn" data-operator="-">−</button>
+
+                    <button class="btn number-btn" data-number="7">7</button>
+                    <button class="btn number-btn" data-number="8">8</button>
+                    <button class="btn number-btn" data-number="9">9</button>
+                    <button class="btn function-btn" data-function="percentage">%</button>
+                    <button class="btn operator-btn" data-operator="+">+</button>
+
+                    <button class="btn number-btn" data-number="4">4</button>
+                    <button class="btn number-btn" data-number="5">5</button>
+                    <button class="btn number-btn" data-number="6">6</button>
+                    <button class="btn function-btn" data-function="factorial">n!</button>
+                    <button class="btn equals-btn" data-action="equals">=</button>
+
+                    <button class="btn number-btn" data-number="1">1</button>
+                    <button class="btn number-btn" data-number="2">2</button>
+                    <button class="btn number-btn" data-number="3">3</button>
+                    <button class="btn function-btn" data-function="deg-rad">DEG/RAD</button>
+                    <button class="btn function-btn" data-function="power">x^y</button>
+
+                    <button class="btn number-btn" data-number="0">0</button>
+                    <button class="btn number-btn" data-number=".">.</button>
+                    <button class="btn function-btn" data-function="abs">|x|</button>
+                    <button class="btn function-btn" data-function="reciprocal">1/x</button>
+                </div>
+            </div>
+
+            <!-- Advanced Mode -->
+            <div class="mode-content hidden" id="advanced-mode">
+                <div class="buttons-grid advanced-grid">
+                    <!-- Row 1 -->
+                    <button class="btn function-btn" data-action="clear">AC</button>
+                    <button class="btn function-btn" data-action="delete">DEL</button>
+                    <button class="btn function-btn" data-action="toggleSign">±</button>
+                    <button class="btn function-btn" data-action="reciprocal">1/x</button>
+                    <button class="btn operator-btn" data-operator="/">÷</button>
+
+                    <!-- Row 2 -->
+                    <button class="btn function-btn" data-function="sqrt">√</button>
+                    <button class="btn function-btn" data-function="sin">sin</button>
+                    <button class="btn function-btn" data-function="cos">cos</button>
+                    <button class="btn function-btn" data-function="tan">tan</button>
+                    <button class="btn operator-btn" data-operator="*">×</button>
+
+                    <!-- Row 3 -->
+                    <button class="btn function-btn" data-function="square">x²</button>
+                    <button class="btn function-btn" data-function="cube">x³</button>
+                    <button class="btn function-btn" data-function="power">x^y</button>
+                    <button class="btn function-btn" data-function="log">log</button>
+                    <button class="btn operator-btn" data-operator="-">−</button>
+
+                    <!-- Row 4 -->
+                    <button class="btn function-btn" data-function="ln">ln</button>
+                    <button class="btn function-btn" data-function="factorial">n!</button>
+                    <button class="btn function-btn" data-function="pi">π</button>
+                    <button class="btn function-btn" data-function="e">e</button>
+                    <button class="btn operator-btn" data-operator="+">+</button>
+
+                    <!-- Row 5 - Numbers -->
+                    <button class="btn number-btn" data-number="7">7</button>
+                    <button class="btn number-btn" data-number="8">8</button>
+                    <button class="btn number-btn" data-number="9">9</button>
+                    <button class="btn function-btn" data-function="percentage">%</button>
+                    <button class="btn equals-btn" data-action="equals">=</button>
+
+                    <!-- Row 6 - Numbers -->
+                    <button class="btn number-btn" data-number="4">4</button>
+                    <button class="btn number-btn" data-number="5">5</button>
+                    <button class="btn number-btn" data-number="6">6</button>
+                    <button class="btn function-btn" data-function="deg-rad">°</button>
+                    <button class="btn function-btn" data-action="openParen">(</button>
+
+                    <!-- Row 7 - Numbers -->
+                    <button class="btn number-btn" data-number="1">1</button>
+                    <button class="btn number-btn" data-number="2">2</button>
+                    <button class="btn number-btn" data-number="3">3</button>
+                    <button class="btn function-btn" data-function="abs">|x|</button>
+                    <button class="btn function-btn" data-action="closeParen">)</button>
+
+                    <!-- Row 8 - Numbers -->
+                    <button class="btn number-btn" data-number="0">0</button>
+                    <button class="btn number-btn" data-number=".">.</button>
+                    <button class="btn function-btn" data-function="mod">mod</button>
+                    <button class="btn function-btn" data-function="atan">atan</button>
+                </div>
+            </div>
+
+            <!-- Programmer Mode -->
+            <div class="mode-content hidden" id="programmer-mode">
+                <div class="number-system-switcher">
+                    <button class="num-sys-btn active" data-system="dec">DEC</button>
+                    <button class="num-sys-btn" data-system="hex">HEX</button>
+                    <button class="num-sys-btn" data-system="bin">BIN</button>
+                    <button class="num-sys-btn" data-system="oct">OCT</button>
+                </div>
+
+                <div class="buttons-grid programmer-grid">
+                    <!-- Row 1 -->
+                    <button class="btn function-btn" data-action="clear">AC</button>
+                    <button class="btn function-btn" data-action="delete">DEL</button>
+                    <button class="btn function-btn" data-action="toggleSign">±</button>
+                    <button class="btn operator-btn" data-operator="/">÷</button>
+
+                    <!-- Row 2 -->
+                    <button class="btn number-btn" data-number="7">7</button>
+                    <button class="btn number-btn" data-number="8">8</button>
+                    <button class="btn number-btn" data-number="9">9</button>
+                    <button class="btn operator-btn" data-operator="*">×</button>
+
+                    <!-- Row 3 -->
+                    <button class="btn number-btn" data-number="4">4</button>
+                    <button class="btn number-btn" data-number="5">5</button>
+                    <button class="btn number-btn" data-number="6">6</button>
+                    <button class="btn operator-btn" data-operator="-">−</button>
+
+                    <!-- Row 4 -->
+                    <button class="btn number-btn" data-number="1">1</button>
+                    <button class="btn number-btn" data-number="2">2</button>
+                    <button class="btn number-btn" data-number="3">3</button>
+                    <button class="btn operator-btn" data-operator="+">+</button>
+
+                    <!-- Row 5 -->
+                    <button class="btn number-btn" data-number="0">0</button>
+                    <button class="btn number-btn hex-btn" data-number="A">A</button>
+                    <button class="btn number-btn hex-btn" data-number="B">B</button>
+                    <button class="btn equals-btn" data-action="equals">=</button>
+
+                    <!-- Bitwise operations -->
+                    <button class="btn function-btn" data-function="and">AND</button>
+                    <button class="btn number-btn hex-btn" data-number="C">C</button>
+                    <button class="btn function-btn" data-function="or">OR</button>
+                    <button class="btn number-btn hex-btn" data-number="D">D</button>
+
+                    <button class="btn function-btn" data-function="xor">XOR</button>
+                    <button class="btn number-btn hex-btn" data-number="E">E</button>
+                    <button class="btn function-btn" data-function="not">NOT</button>
+                    <button class="btn number-btn hex-btn" data-number="F">F</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
