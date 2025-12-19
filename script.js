@@ -23,16 +23,25 @@ class Calculator {
         for (let i = 0; i < confettiCount; i++) {
             const confetti = document.createElement('div');
             confetti.classList.add('confetti');
-            confetti.classList.add(`confetti-${(i % 5) + 1}`);
             
             const startX = Math.random() * window.innerWidth;
+            const randomDelay = Math.random() * 0.5; // Random delay up to 500ms
+            const randomDuration = 2.5 + Math.random() * 1.5; // Random duration between 2.5-4s
+            const randomRotation = Math.random() * 720; // Random rotation 0-720deg
+            const randomDriftX = -50 + Math.random() * 100; // Random drift -50 to 50px
+            
             confetti.style.left = startX + 'px';
             confetti.style.top = '-20px';
+            confetti.style.setProperty('--random-drift', randomDriftX + 'px');
+            confetti.style.setProperty('--random-rotation', randomRotation + 'deg');
+            confetti.style.animation = `confettiFallRandom ${randomDuration}s ease-in forwards`;
+            confetti.style.animationDelay = randomDelay + 's';
+            confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
             
             document.body.appendChild(confetti);
             
             // Remove confetti after animation completes
-            setTimeout(() => confetti.remove(), 3800);
+            setTimeout(() => confetti.remove(), (randomDuration + randomDelay) * 1000 + 100);
         }
     }
 
