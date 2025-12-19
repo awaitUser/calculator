@@ -8,12 +8,48 @@ class Calculator {
         this.shouldResetDisplay = false;
         this.angleMode = 'deg'; // deg or rad
         this.currentNumberSystem = 'dec';
+        this.audioElement = document.getElementById('background-music');
+        this.musicBtn = document.getElementById('music-toggle');
+        this.isPlaying = false;
         this.init();
     }
 
     init() {
         this.attachEventListeners();
+        this.setupMusicPlayer();
         this.updateDisplay();
+    }
+
+    setupMusicPlayer() {
+        this.musicBtn.addEventListener('click', () => this.toggleMusic());
+        
+        // Update button state when audio plays/pauses
+        this.audioElement.addEventListener('play', () => {
+            this.isPlaying = true;
+            this.musicBtn.classList.add('playing');
+        });
+        
+        this.audioElement.addEventListener('pause', () => {
+            this.isPlaying = false;
+            this.musicBtn.classList.remove('playing');
+        });
+        
+        // Handle when audio ends
+        this.audioElement.addEventListener('ended', () => {
+            this.isPlaying = false;
+            this.musicBtn.classList.remove('playing');
+        });
+    }
+
+    toggleMusic() {
+        if (this.isPlaying) {
+            this.audioElement.pause();
+        } else {
+            this.audioElement.play().catch(() => {
+                // Handle error if audio file doesn't exist
+                console.log('No music file found in Music/track.mp3');
+            });
+        }
     }
 
     triggerConfetti() {

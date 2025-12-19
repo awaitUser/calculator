@@ -44,6 +44,28 @@ body {
     border: 1px solid rgba(0, 212, 255, 0.1);
 }
 
+/* Music Player */
+.music-player {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+}
+
+.music-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
 @keyframes slideIn {
     from {
         opacity: 0;
@@ -64,6 +86,7 @@ body {
     padding: 8px;
     border-radius: 12px;
     justify-content: space-between;
+    align-items: center;
 }
 
 .mode-btn {
@@ -79,14 +102,36 @@ body {
     transition: var(--transition);
 }
 
-.mode-btn:hover {
-    background: rgba(255, 255, 255, 0.05);
-}
-
 .mode-btn.active {
     background: var(--secondary-color);
     color: var(--background);
     font-weight: 700;
+}
+
+.music-btn {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    padding: 0;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    color: var(--secondary-color);
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.music-btn:hover {
+    background: rgba(0, 212, 255, 0.1);
+}
+
+.music-btn.playing {
+    background: var(--secondary-color);
+    color: var(--background);
 }
 
 /* Display */
