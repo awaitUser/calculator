@@ -5,22 +5,23 @@
 }
 
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --accent-color: #e74c3c;
-    --success-color: #27ae60;
-    --background: #1a1a1a;
-    --card-bg: #2d2d2d;
+    --primary-color: #1e2a3a;
+    --secondary-color: #00d4ff;
+    --accent-color: #ff6b6b;
+    --success-color: #51cf66;
+    --background: #0f1419;
+    --card-bg: #1a2332;
     --text-primary: #ffffff;
-    --text-secondary: #bdbdbd;
-    --border-color: #444444;
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    --transition: all 0.3s ease;
+    --text-secondary: #a0aec0;
+    --border-color: #2d3e52;
+    --shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    --glow-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, var(--background) 0%, #2d2d2d 100%);
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
     color: var(--text-primary);
     min-height: 100vh;
     display: flex;
@@ -40,6 +41,7 @@ body {
     box-shadow: var(--shadow);
     padding: 20px;
     animation: slideIn 0.5s ease;
+    border: 1px solid rgba(0, 212, 255, 0.1);
 }
 
 @keyframes slideIn {
@@ -83,7 +85,8 @@ body {
 
 .mode-btn.active {
     background: var(--secondary-color);
-    color: white;
+    color: var(--background);
+    font-weight: 700;
 }
 
 /* Display */
@@ -186,8 +189,9 @@ body {
 }
 
 .number-btn:hover {
-    background: #3a4f63;
+    background: #2a3f54;
     border-color: var(--secondary-color);
+    box-shadow: var(--glow-shadow);
 }
 
 .number-btn:active {
@@ -196,11 +200,13 @@ body {
 
 .operator-btn {
     background: var(--secondary-color);
-    color: white;
+    color: var(--background);
+    font-weight: 700;
 }
 
 .operator-btn:hover {
-    background: #2980b9;
+    background: #00b8d4;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
 }
 
 .operator-btn:active {
@@ -209,14 +215,15 @@ body {
 
 .function-btn {
     background: var(--primary-color);
-    color: #3498db;
+    color: #00d4ff;
     border: 1px solid var(--border-color);
     font-size: 13px;
 }
 
 .function-btn:hover {
-    background: #3a4f63;
+    background: #2a3f54;
     border-color: var(--secondary-color);
+    box-shadow: var(--glow-shadow);
 }
 
 .function-btn:active {
@@ -225,52 +232,17 @@ body {
 
 .equals-btn {
     background: var(--success-color);
-    color: white;
+    color: var(--background);
     font-weight: 700;
 }
 
 .equals-btn:hover {
-    background: #229954;
+    background: #40c057;
+    box-shadow: 0 0 15px rgba(81, 207, 102, 0.4);
 }
 
 .btn:active {
     transform: scale(0.95);
-}
-
-/* Glow Effect Animation */
-@keyframes buttonGlow {
-    0% {
-        box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-        transform: scale(0.95);
-    }
-    50% {
-        box-shadow: 0 0 20px rgba(52, 152, 219, 0.8), 0 0 30px rgba(52, 152, 219, 0.6);
-        transform: scale(1);
-    }
-    100% {
-        box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
-        transform: scale(0.95);
-    }
-}
-
-@keyframes neighborGlow {
-    0% {
-        box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
-    }
-    50% {
-        box-shadow: 0 0 12px rgba(52, 152, 219, 0.5);
-    }
-    100% {
-        box-shadow: 0 0 5px rgba(52, 152, 219, 0.2);
-    }
-}
-
-.btn.glow-active {
-    animation: buttonGlow 0.6s ease-out;
-}
-
-.btn.glow-neighbor {
-    animation: neighborGlow 0.6s ease-out;
 }
 
 /* Hidden Mode */
@@ -406,13 +378,52 @@ body {
     }
 }
 
-/* Hex button styling for programmer mode */
-.hex-btn {
-    background: var(--primary-color);
-    color: var(--accent-color);
+/* Confetti animation */
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-100vh) translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) translateX(100px) rotate(360deg);
+        opacity: 0;
+    }
 }
 
-.hex-btn:hover {
-    background: #3a4f63;
-    border-color: var(--accent-color);
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.confetti.confetti-1 {
+    background: #ff6b6b;
+    animation: confettiFall 3s ease-in forwards;
+    animation-delay: 0s;
+}
+
+.confetti.confetti-2 {
+    background: #00d4ff;
+    animation: confettiFall 3.5s ease-in forwards;
+    animation-delay: 0.1s;
+}
+
+.confetti.confetti-3 {
+    background: #51cf66;
+    animation: confettiFall 3.2s ease-in forwards;
+    animation-delay: 0.2s;
+}
+
+.confetti.confetti-4 {
+    background: #ffd43b;
+    animation: confettiFall 3.8s ease-in forwards;
+    animation-delay: 0.3s;
+}
+
+.confetti.confetti-5 {
+    background: #ff922b;
+    animation: confettiFall 3.3s ease-in forwards;
+    animation-delay: 0.4s;
 }

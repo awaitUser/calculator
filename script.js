@@ -16,53 +16,55 @@ class Calculator {
         this.updateDisplay();
     }
 
+    triggerConfetti() {
+        const confettiCount = 50;
+        const colors = ['#ff6b6b', '#00d4ff', '#51cf66', '#ffd43b', '#ff922b'];
+        
+        for (let i = 0; i < confettiCount; i++) {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.classList.add(`confetti-${(i % 5) + 1}`);
+            
+            const startX = Math.random() * window.innerWidth;
+            confetti.style.left = startX + 'px';
+            confetti.style.top = '-20px';
+            
+            document.body.appendChild(confetti);
+            
+            // Remove confetti after animation completes
+            setTimeout(() => confetti.remove(), 3800);
+        }
+    }
+
     attachEventListeners() {
         // Number buttons
         document.querySelectorAll('.number-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                this.triggerGlowEffect(e.target);
-                this.handleNumber(e.target.dataset.number);
-            });
+            btn.addEventListener('click', (e) => this.handleNumber(e.target.dataset.number));
         });
 
         // Operator buttons
         document.querySelectorAll('.operator-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                this.triggerGlowEffect(e.target);
-                this.handleOperator(e.target.dataset.operator);
-            });
+            btn.addEventListener('click', (e) => this.handleOperator(e.target.dataset.operator));
         });
 
         // Function buttons
         document.querySelectorAll('[data-function]').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                this.triggerGlowEffect(e.target);
-                this.handleFunction(e.target.dataset.function);
-            });
+            btn.addEventListener('click', (e) => this.handleFunction(e.target.dataset.function));
         });
 
         // Action buttons
         document.querySelectorAll('[data-action]').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                this.triggerGlowEffect(e.target);
-                this.handleAction(e.target.dataset.action);
-            });
+            btn.addEventListener('click', (e) => this.handleAction(e.target.dataset.action));
         });
 
         // Mode buttons
         document.querySelectorAll('.mode-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                this.triggerGlowEffect(e.target);
-                this.switchMode(e.target.dataset.mode);
-            });
+            btn.addEventListener('click', (e) => this.switchMode(e.target.dataset.mode));
         });
 
         // Number system buttons (Programmer mode)
         document.querySelectorAll('.num-sys-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                this.triggerGlowEffect(e.target);
-                this.switchNumberSystem(e.target.dataset.system);
-            });
+            btn.addEventListener('click', (e) => this.switchNumberSystem(e.target.dataset.system));
         });
 
         // Keyboard support
@@ -249,6 +251,11 @@ class Calculator {
 
     calculate() {
         if (this.previousInput === '' || this.currentInput === '' || !this.operator) return;
+
+        // Check for birthday easter egg
+        if (this.currentInput === '1909' && this.operator === null) {
+            this.triggerConfetti();
+        }
 
         try {
             let result;
@@ -444,36 +451,6 @@ class Calculator {
             e.preventDefault();
             this.handleAction('clear');
         }
-    }
-
-    triggerGlowEffect(button) {
-        // Remove any existing glow classes
-        button.classList.remove('glow-active');
-        
-        // Trigger reflow to restart animation
-        void button.offsetWidth;
-        
-        // Add glow to the clicked button
-        button.classList.add('glow-active');
-
-        // Add glow to neighboring buttons
-        const allButtons = document.querySelectorAll('.btn');
-        const buttonIndex = Array.from(allButtons).indexOf(button);
-        
-        if (buttonIndex !== -1) {
-            // Add glow to adjacent buttons
-            if (buttonIndex > 0) {
-                allButtons[buttonIndex - 1].classList.add('glow-neighbor');
-                setTimeout(() => allButtons[buttonIndex - 1].classList.remove('glow-neighbor'), 600);
-            }
-            if (buttonIndex < allButtons.length - 1) {
-                allButtons[buttonIndex + 1].classList.add('glow-neighbor');
-                setTimeout(() => allButtons[buttonIndex + 1].classList.remove('glow-neighbor'), 600);
-            }
-        }
-
-        // Remove glow class after animation completes
-        setTimeout(() => button.classList.remove('glow-active'), 600);
     }
 }
 
