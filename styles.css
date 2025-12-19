@@ -163,13 +163,13 @@ body {
 
 /* Mode Switcher */
 .mode-switcher {
-    display: flex;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
     margin-bottom: 20px;
     background: var(--primary-color);
     padding: 8px;
     border-radius: 12px;
-    justify-content: space-between;
     align-items: center;
 }
 
@@ -309,6 +309,9 @@ body {
     cursor: pointer;
     transition: var(--transition);
     text-transform: uppercase;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .number-btn {
@@ -385,6 +388,23 @@ body {
         padding: 16px;
     }
 
+    .mode-switcher {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+        padding: 6px;
+    }
+
+    .mode-btn {
+        padding: 10px 8px;
+        font-size: 11px;
+    }
+
+    .music-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+
     .display-input {
         font-size: 24px;
     }
@@ -397,16 +417,29 @@ body {
     .function-btn {
         font-size: 11px;
     }
-
-    .mode-btn {
-        padding: 10px 12px;
-        font-size: 12px;
-    }
 }
 
 @media (max-width: 400px) {
     .calculator {
         padding: 12px;
+    }
+
+    .mode-switcher {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4px;
+        padding: 4px;
+        margin-bottom: 12px;
+    }
+
+    .mode-btn {
+        padding: 8px 6px;
+        font-size: 10px;
+    }
+
+    .music-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 14px;
     }
 
     .btn {

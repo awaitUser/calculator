@@ -102,32 +102,50 @@ class Calculator {
     attachEventListeners() {
         // Number buttons
         document.querySelectorAll('.number-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => this.handleNumber(e.target.dataset.number));
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.handleNumber(e.currentTarget.dataset.number);
+            });
         });
 
         // Operator buttons
         document.querySelectorAll('.operator-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => this.handleOperator(e.target.dataset.operator));
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.handleOperator(e.currentTarget.dataset.operator);
+            });
         });
 
         // Function buttons
         document.querySelectorAll('[data-function]').forEach(btn => {
-            btn.addEventListener('click', (e) => this.handleFunction(e.target.dataset.function));
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.handleFunction(e.currentTarget.dataset.function);
+            });
         });
 
         // Action buttons
         document.querySelectorAll('[data-action]').forEach(btn => {
-            btn.addEventListener('click', (e) => this.handleAction(e.target.dataset.action));
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.handleAction(e.currentTarget.dataset.action);
+            });
         });
 
         // Mode buttons
         document.querySelectorAll('.mode-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => this.switchMode(e.target.dataset.mode));
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.switchMode(e.currentTarget.dataset.mode);
+            });
         });
 
         // Number system buttons (Programmer mode)
         document.querySelectorAll('.num-sys-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => this.switchNumberSystem(e.target.dataset.system));
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.switchNumberSystem(e.currentTarget.dataset.system);
+            });
         });
 
         // Keyboard support
