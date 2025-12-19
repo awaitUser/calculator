@@ -288,6 +288,15 @@ class Calculator {
                     this.previousInput = '';
                     this.updateDisplay();
                     this.updateHistory();
+                } else if (this.currentInput === '67' && this.operator === null) {
+                    // 67 meme easter egg
+                    this.currentInput = '67 - Nice';
+                    this.shouldResetDisplay = true;
+                    this.updateDisplay();
+                    setTimeout(() => {
+                        this.currentInput = '67';
+                        this.updateDisplay();
+                    }, 2000);
                 } else {
                     this.calculate();
                 }
