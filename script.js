@@ -81,6 +81,24 @@ class Calculator {
         }
     }
 
+    trigger67Animation() {
+        const calculator = document.querySelector('.calculator');
+        
+        // Remove animation class if it exists
+        calculator.classList.remove('split-shake');
+        
+        // Trigger reflow to restart animation
+        void calculator.offsetWidth;
+        
+        // Add animation class
+        calculator.classList.add('split-shake');
+        
+        // Remove animation class after it completes
+        setTimeout(() => {
+            calculator.classList.remove('split-shake');
+        }, 1200);
+    }
+
     attachEventListeners() {
         // Number buttons
         document.querySelectorAll('.number-btn').forEach(btn => {
@@ -289,14 +307,8 @@ class Calculator {
                     this.updateDisplay();
                     this.updateHistory();
                 } else if (this.currentInput === '67' && this.operator === null) {
-                    // 67 meme easter egg
-                    this.currentInput = '67 - Nice';
-                    this.shouldResetDisplay = true;
-                    this.updateDisplay();
-                    setTimeout(() => {
-                        this.currentInput = '67';
-                        this.updateDisplay();
-                    }, 2000);
+                    // 67 meme easter egg - split shake animation
+                    this.trigger67Animation();
                 } else {
                     this.calculate();
                 }

@@ -77,6 +77,90 @@ body {
     }
 }
 
+/* 67 meme animation - calculator split shake */
+@keyframes calculatorSplit {
+    0%, 100% {
+        transform: translateY(0);
+        clip-path: inset(0 0 0 0);
+    }
+    10% {
+        clip-path: inset(0 0 50% 0);
+        transform: translateY(-20px);
+    }
+    10.5% {
+        clip-path: inset(50% 0 0 0);
+        transform: translateY(20px);
+    }
+    20% {
+        clip-path: inset(0 0 50% 0);
+        transform: translateY(-20px);
+    }
+    20.5% {
+        clip-path: inset(50% 0 0 0);
+        transform: translateY(20px);
+    }
+    30% {
+        clip-path: inset(0 0 50% 0);
+        transform: translateY(-20px);
+    }
+    30.5% {
+        clip-path: inset(50% 0 0 0);
+        transform: translateY(20px);
+    }
+    40% {
+        clip-path: inset(0 0 50% 0);
+        transform: translateY(-20px);
+    }
+    40.5% {
+        clip-path: inset(50% 0 0 0);
+        transform: translateY(20px);
+    }
+    50% {
+        clip-path: inset(0 0 50% 0);
+        transform: translateY(-20px);
+    }
+    50.5% {
+        clip-path: inset(50% 0 0 0);
+        transform: translateY(20px);
+    }
+    60% {
+        clip-path: inset(0 0 50% 0);
+        transform: translateY(-20px);
+    }
+    60.5% {
+        clip-path: inset(50% 0 0 0);
+        transform: translateY(20px);
+    }
+    70% {
+        clip-path: inset(0 0 50% 0);
+        transform: translateY(-20px);
+    }
+    70.5% {
+        clip-path: inset(50% 0 0 0);
+        transform: translateY(20px);
+    }
+    80% {
+        clip-path: inset(0 0 50% 0);
+        transform: translateY(-20px);
+    }
+    80.5% {
+        clip-path: inset(50% 0 0 0);
+        transform: translateY(20px);
+    }
+    90% {
+        clip-path: inset(0 0 50% 0);
+        transform: translateY(-20px);
+    }
+    90.5% {
+        clip-path: inset(50% 0 0 0);
+        transform: translateY(20px);
+    }
+}
+
+.calculator.split-shake {
+    animation: calculatorSplit 1.2s ease-in-out;
+}
+
 /* Mode Switcher */
 .mode-switcher {
     display: flex;
